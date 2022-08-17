@@ -18,3 +18,19 @@ console.log(filterArr([1,1,2,3,3,4]))
 
 //O(n^2)
 
+//O(n)
+function filterArrBetter (arr) {
+    let obj = {}
+
+    for(let i = 0; i< arr.length; i++) {
+        const el = arr[i]
+        if(!obj[el]) {
+            obj[el] = 1
+        } else {
+            obj[el] += 1
+        }
+    }
+    return Object.keys(obj).filter(el => obj[el] === 1)
+}
+
+console.log(filterArrBetter([1,1,2,3,3,4,4,4,5,6,7,8,8]))
